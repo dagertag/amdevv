@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои обращения</title>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+<div id="header"></div>
+<section class="content">
+    <div class="content-table">
+        <div class="table-task">
+            <div class="content__text">
+                <div id="error" class="error"></div>
+                <h1>Мои обращения</h1>
+                <div class="filters">
+                    <div class="filters-header">
+                        <h3>Фильтры</h3>
+                    </div>
+                    <div class="filters-content">
+                        <div class="filter-group">
+                            <label for="statusFilter">Статус</label>
+                            <select id="statusFilter" class="filter-select">
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="dateFrom">Период</label>
+                            <div class="date-inputs">
+                                <input type="date" id="dateFrom" class="filter-input">
+                                <span class="date-separator">—</span>
+                                <input type="date" id="dateTo" class="filter-input">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-clear" id="clearFilters">Сбросить</button>
+                </div>
+                <table class="content__table" id="tasksTable">
+                    <thead>
+                    <tr>
+                        <th>
+                            ID
+                            <button class="sort-btn" data-sort="id">▼▲</button>
+                        </th>
+                        <th>
+                            Дата создания
+                            <button class="sort-btn" data-sort="created_at">▼▲</button>
+                        </th>
+                        <th>
+                            Последнее изменение
+                            <button class="sort-btn" data-sort="update_at">▼▲</button>
+                        </th>
+                        <th>
+                            Статус
+                            <button class="sort-btn" data-sort="status_label">▼▲</button>
+                        </th>
+                        <th>Описание</th>
+                        <th>
+                            Ответ
+                            <button class="sort-btn" data-sort="has_message">▼▲</button>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <button class="btn-create" data-modal="createTaskModal">Создать новую заявку</button>
+                <div id="createTaskModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2>Новая заявка</h2>
+                        <form class="formRegister" id="formTask">
+                            <input type="text" name="title" placeholder="Название задачи">
+                            <textarea name="description" class="textarea-modal"
+                                      placeholder="Описание задачи"></textarea>
+                            <button type="submit" class="btn-register">Отправить заявку</button>
+                        </form>
+                        <div id="result"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="messageModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Ответ на обращение</h3>
+                <div class="message-info">
+                    <p><strong>Дата ответа:</strong> <span id="messageDate"></span></p>
+                    <p><strong>Текст ответа:</strong></p>
+                    <div id="messageText" class="message-text"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div id="footer"></div>
+<script src="/js/config.js"></script>
+<script src="js/components.js"></script>
+<script src="js/tasks.js"></script>
+<script src="js/filters.js"></script>
+</body>
+</html>

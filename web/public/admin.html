@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Просмотр обращений клиентов</title>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+<div id="header"></div>
+<section class="content">
+    <div class="content__text">
+        <h1>Задачи клиентов</h1>
+        <div class="filters">
+            <div class="filters-header">
+                <h3>Фильтры</h3>
+                <a href="/settings" title="Настройки системы">⚙️</a>
+            </div>
+            <div class="filters-content">
+                <div class="filter-group">
+                    <label for="statusFilter">Статус</label>
+                    <select id="statusFilter" class="filter-select">
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="dateFrom">Период</label>
+                    <div class="date-inputs">
+                        <input type="date" id="dateFrom" class="filter-input">
+                        <span class="date-separator">—</span>
+                        <input type="date" id="dateTo" class="filter-input">
+                    </div>
+                </div>
+            </div>
+            <button class="btn-clear" id="clearFilters">Сбросить</button>
+        </div>
+        <table class="admin__table" id="tasksTable">
+            <thead>
+            <tr>
+                <th>
+                    <button class="sort-btn" data-sort="id">ID ▼▲</button>
+                </th>
+                <th>
+                    <button class="sort-btn" data-sort="username">Клиент ▼▲</button>
+                </th>
+                <th>Описание задачи</th>
+                <th>
+                    <button class="sort-btn" data-sort="created_at">Создана ▼▲</button>
+                </th>
+                <th>
+                    <button class="sort-btn" data-sort="status_label">Статус ▼▲</button>
+                </th>
+                <th>Подробная информация</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <div id="taskDetailsModal" class="modal">
+            <div class="modal-content large">
+                <span class="close">&times;</span>
+                <div class="modal-body" id="modal-body-container">
+                </div>
+                <div id="result"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<div id="footer"></div>
+<script src="/js/config.js"></script>
+<script src="js/components.js"></script>
+<script src="js/admintasks.js"></script>
+<script src="js/filters.js"></script>
+</body>
+</html>

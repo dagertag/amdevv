@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Системные настройки</title>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+<div id="header"></div>
+<section class="content">
+    <div class="content-table">
+        <div class="table-system-tag">
+            <div class="content__text">
+                <h1>Текущие теги</h1>
+                <table class="content__table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Название</th>
+                        <th>Действия</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tagsList">
+                    </tbody>
+                </table>
+                <button id="createTagBtn" class="btn-register">Создать тег</button>
+            </div>
+        </div>
+        <div class="table-system ">
+            <div class="content__text">
+                <h1>Текущие статусы</h1>
+                <table class="content__table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Системное имя</th>
+                        <th>Отображаемое имя</th>
+                        <th>Действия</th>
+                    </tr>
+                    </thead>
+                    <tbody id="statusesList">
+                    </tbody>
+                </table>
+                <button id="createStatusBtn" class="btn-register">Создать статус</button>
+            </div>
+        </div>
+        <div id="tagModal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3 id="tagModalTitle">Создать тег</h3>
+                <form id="tagForm">
+                    <input type="hidden" id="tagId">
+                    <div class="form-group">
+                        <label>Название тега:</label>
+                        <input type="text" id="tagName" required>
+                    </div>
+                    <button type="submit" class="btn-register">Сохранить</button>
+                    <button type="button" id="tagCancelBtn" class="btn-register">Отмена</button>
+                </form>
+            </div>
+        </div>
+        <div id="statusModal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3 id="statusModalTitle">Создать статус</h3>
+                <form id="statusForm">
+                    <input type="hidden" id="statusId">
+                    <div class="form-group">
+                        <label>Системное имя:</label>
+                        <input type="text" id="statusName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Отображаемое имя:</label>
+                        <input type="text" id="statusLabel" required>
+                    </div>
+                    <button type="submit" class="btn-register">Сохранить</button>
+                    <button type="button" id="statusCancelBtn" class="btn-register">Отмена</button>
+                </form>
+            </div>
+        </div>
+        <div id="messageModal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Ответ на обращение</h3>
+                <div class="message-info">
+                    <p><strong>Дата ответа:</strong> <span id="messageDate"></span></p>
+                    <p><strong>Текст ответа:</strong></p>
+                    <div id="messageText" class="message-text"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div id="footer"></div>
+<script src="/js/config.js"></script>
+<script src="js/components.js"></script>
+<script src="js/settings.js"></script>
+</body>
+</html>
